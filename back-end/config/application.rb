@@ -36,5 +36,11 @@ module DevChallenge
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    I18n.available_locales = ['pt-BR', :en]
+    config.i18n.default_locale = :'pt-BR'
+
+    config.autoload_paths << "#{Rails.root}/app/services/*"
+    config.eager_load_paths << "#{Rails.root}/app/services/*"
   end
 end

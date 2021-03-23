@@ -1,4 +1,4 @@
-class Companies::CreateService < ::BaseService
+class Companies::CompanyCreateService < ::BaseService
   needs :company_params
 
   steps :create_company
