@@ -6,4 +6,3 @@ class CreditRequestSerializer < ActiveModel::Serializer
   end
     
 end
-        
