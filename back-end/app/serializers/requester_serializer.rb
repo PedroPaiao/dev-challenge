@@ -1,5 +1,4 @@
 class RequesterSerializer < ActiveModel::Serializer
-  attributes :cnpj
-    
+  attributes :cnpj, :company_name
 end
         

@@ -5,12 +5,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :lendings do
-        collection do
-          get :index_all, controller: :points, action: :index_all
-          get :get_pdf, controller: :points, action: :get_pdf
-        end
-      end
+      resources :lendings
+      resources :requesters
+      resources :credit_requests
     end
   end
 end
