@@ -1,0 +1,43 @@
+<mat-card>
+	<mat-card-title class="mb-4 text-center">Solicitação Realizada!</mat-card-title>
+	<mat-card-content style="margin-bottom: 16px;">
+		<div class="table-responsive">
+			<table mat-table [dataSource]="dataSource" class="w-100 text-center">
+				<!-- Position Column -->
+				<ng-container matColumnDef="price">
+					<th mat-header-cell class="text-center" *matHeaderCellDef> Valor total </th>
+					<td mat-cell *matCellDef="let element"> {{element.price}} </td>
+				</ng-container>
+				<!-- Name Column -->
+				<ng-container matColumnDef="installmentsCount">
+					<th mat-header-cell class="text-center" *matHeaderCellDef> Numero de parcelas </th>
+					<td mat-cell *matCellDef="let element"> {{element.installmentsCount}} </td>
+				</ng-container>
+			
+				<!-- Symbol Column -->
+				<ng-container matColumnDef="tax">
+					<th mat-header-cell class="text-center" *matHeaderCellDef> Taxa </th>
+					<td mat-cell *matCellDef="let element"> {{element.tax}} </td>
+				</ng-container>
+	
+				<ng-container matColumnDef="lastDate">
+					<th mat-header-cell class="text-center" *matHeaderCellDef> Data da ultima parcela </th>
+					<td mat-cell *matCellDef="let element"> {{ element.lastDate }} </td>
+				</ng-container>
+			
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+		</div>
+		<div class="row justify-content-end">
+      <div class="mr-4 mt-2">
+        <button mat-button type="submit" (click)="openInstallments()" class="button" color="">Ver parcelas</button>
+      </div>
+    </div>
+		<div class="row justify-content-center mt-4">
+			<div class="col-md-2 ml-4">
+				<button mat-raised-button type="submit" (click)="backToHome()" class="button" color="accent">Ok</button>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>

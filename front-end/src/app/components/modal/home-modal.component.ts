@@ -19,17 +19,15 @@ export class ModalComponent implements OnInit {
   router;
   constructor(
     private _formBuilder: FormBuilder,
-    private modalService: NgbModal,
-    private snackBar: MatSnackBar,
     private _stepsService: StepsService
   ) {
   }
 
   ngOnInit(): void {
     this.requestFormGroup = this._formBuilder.group({
-      installments_count   : [0.0, [Validators.required]],
-      price: [0.0, Validators.required],
-      tax: [0.0, Validators.required]
+      installmentsCount   : [null, [Validators.required]],
+      price: [null, Validators.required],
+      tax: [null, Validators.required]
     });
 
     this.requestFormGroup.valueChanges.subscribe(() => {
@@ -60,7 +58,7 @@ export class ModalComponent implements OnInit {
       let params = {
       price: this.requestFormGroup.value.price,
       tax: this.requestFormGroup.value.tax,
-      installments_count: this.requestFormGroup.value.installments_count
+      installmentsCount: this.requestFormGroup.value.installmentsCount
       }
       this._stepsService.startSteps(params)
     }

@@ -18,13 +18,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button'
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatTableModule } from '@angular/material/table'
 import { QuestionModalModule } from './components/modal/question-modal.component';
 
 import { HomepageComponent } from './pages/home/homepage.component';
-import { RegisterRequesterModule } from './components/steps/register-requester.component';
 import { FetchCnpjComponent } from './components/steps/fetch-cnpj.component';
 import { StepsService } from './shared/services/steps.service';
 import { StepComponent } from './pages/step/step.component';
+import { RegisterRequesterComponent } from './components/steps/register-requester.component';
+import { VerifyDatasComponent } from './components/steps/verify-datas.component';
+import { ConfirmValuesComponent } from './components/steps/confirm-values.component';
+import { InfoPasswordModule } from './components/modal/info-password-modal.component';
+import { PercentageMaskDirective } from './directives/percentage-mask.directive';
 
 
 export const customCurrencyMaskConfig = {
@@ -46,12 +51,17 @@ export const customCurrencyMaskConfig = {
     StepComponent,
     ModalComponent,
     FetchCnpjComponent,
+    VerifyDatasComponent,
+    ConfirmValuesComponent,
+    RegisterRequesterComponent,
+    PercentageMaskDirective
   ],
   imports: [
     RouterModule,
     MatCardModule,
     BrowserModule,
     MatFormFieldModule,
+    MatTableModule,
     MatInputModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -60,8 +70,11 @@ export const customCurrencyMaskConfig = {
     ReactiveFormsModule,
     MatButtonModule,
     MatSnackBarModule,
-    RegisterRequesterModule,
-    QuestionModalModule
+    QuestionModalModule,
+    InfoPasswordModule
+  ],
+  exports: [
+    PercentageMaskDirective
   ],
   providers: [
     FormsModule,

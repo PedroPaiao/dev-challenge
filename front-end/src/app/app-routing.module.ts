@@ -6,6 +6,9 @@ import { FetchCnpjComponent } from './components/steps/fetch-cnpj.component';
 // Layouts
 import { DefaultComponent } from "./layouts/default.component";
 import { StepComponent } from './pages/step/step.component';
+import { RegisterRequesterComponent } from './components/steps/register-requester.component';
+import { VerifyDatasComponent } from './components/steps/verify-datas.component';
+import { ConfirmValuesComponent } from './components/steps/confirm-values.component';
 
 const routes: Routes = [
   // Default views
@@ -23,7 +26,10 @@ const routes: Routes = [
       { path: "step",
         component: StepComponent,
         children: [
-          { path: "fetch-cnpj", component: FetchCnpjComponent, pathMatch: 'full'}
+          { path: "fetch-cnpj", component: FetchCnpjComponent, pathMatch: 'full'},
+          { path: "register-requester", component: RegisterRequesterComponent, pathMatch: 'full'},
+          { path: "verify-datas", component: VerifyDatasComponent, pathMatch: 'full'},
+          { path: "confirm-values", component: ConfirmValuesComponent, pathMatch: 'full'}
         ] 
       }
     ]

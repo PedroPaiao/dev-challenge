@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "fetch-cnpj",
@@ -11,16 +10,11 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
   }
 })
 export class FetchCnpjComponent implements OnInit {
-  valor;
   requestFormGroup;
   requestFormGroupErrors: any;
-  @Input()
-  text;
-  @Input()
-  isLending;
-  _stepsService;
   constructor(
     private _formBuilder: FormBuilder,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -52,13 +46,6 @@ export class FetchCnpjComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if(this.requestFormGroup.valid) {
-      let params = {
-      price: this.requestFormGroup.value.price,
-      tax: this.requestFormGroup.value.tax,
-      installments_count: this.requestFormGroup.value.installments_count
-      }
-      this._stepsService.startSteps(params)
-    }
+    this._router.navigate(["/solicitation//verify-datas"])
   }
 }

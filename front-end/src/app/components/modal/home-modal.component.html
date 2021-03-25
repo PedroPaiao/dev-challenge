@@ -14,22 +14,24 @@
       </mat-form-field>
       <mat-form-field *ngIf="isLending" appearance="fill" class="w-75">
         <mat-label>Qual taxa será cobrada?</mat-label>
+        <span matSuffix>%</span>
         <input
+        class="text-right"
         matInput
-        currencyMask
-        type="text"
+        type="number"
         value=""
         formControlName="tax"
         />
       </mat-form-field>
       <mat-form-field *ngIf="isLending" appearance="fill" class="w-75">
         <mat-label>Em quantas vezes será dividido o pagamento?</mat-label>
+        <span matSuffix>X</span>
         <input
+        class="text-right"
         matInput
-        currencyMask
-        type="text"
+        type="number"
         value=""
-        formControlName="installments_count"
+        formControlName="installmentsCount"
         />
       </mat-form-field>
       <div class="row col-md-18 justify-content-center">

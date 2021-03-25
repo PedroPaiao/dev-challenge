@@ -15,19 +15,28 @@ export class StepsService {
 
   startSteps(params) {
    this.params = params
-   this.firstStep()
-  }
-
-  firstStep() {
-    let activeModal = this._modalService.open(QuestionModalComponent, {
-      centered: true,
-      size: "sm",
+   let activeModal = this._modalService.open(QuestionModalComponent, {
+    centered: true,
+    size: "sm",
     })
     activeModal.result.then(res => {
       this._router.navigate(["/solicitation/step/fetch-cnpj"])
     }).catch(er => {
-      // this.registerRequester()
+      switch (er) {
+        case 'Cancel':
+          activeModal.close();
+          break;
+        case 'Dont':
+          this._router.navigate(["/solicitation/step/register-requester"])
+        default:
+          activeModal.close();
+          break;
+      }
     })
+  }
+
+  getParams() {
+    return this.params
   }
 
   errorSnackBar(message) {

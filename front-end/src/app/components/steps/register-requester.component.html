@@ -1,44 +1,31 @@
-<div class="bg-secondary" style="color: aliceblue;">
-  <div class="modal-header">
-    Cadastrar solicitante
-    <a class="dismiss" (click)="activeModal.dismiss('Cross click')">
-      <i>X</i>
-    </a>
-  </div>
-  <div class="modal-body">
-    <div class="container mt-0">
-      <div class="row">
-        <form [formGroup]="requestFormGroup" (ngSubmit)="onSubmit()">
-          <mat-form-field appearance="fill" class="w-100 mt-0">
-            <mat-label>CNPJ</mat-label>
-            <input matInput placeholder="00.000.000/0000-00" formControlName="cnpj" value="">
-          </mat-form-field>
-          <mat-form-field appearance="fill" class="w-100 mt-0">
-            <mat-label>Razão Social</mat-label>
-            <input matInput placeholder="Nome fantasia" formControlName="companyName" value="">
-          </mat-form-field>
-          <mat-form-field appearance="fill" class="w-100 mt-0">
-            <mat-label>Endereço</mat-label>
-            <input matInput placeholder="Nome fantasia" formControlName="companyName" value="">
-          </mat-form-field>
-          <mat-form-field appearance="fill" class="w-100 mt-0">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="Nome fantasia" formControlName="companyName" value="">
-          </mat-form-field>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <div class="container mt-0">
-      <div class="row justify-content-end">
-        <div class="col-md-3 col-sm-3">
-          <button mat-raised-button (click)="activeModal.dismiss('Cross click')" class="dismiss">Não</button>
+<mat-card class="text-center">
+  <mat-card-title class="mb-4">Informe seu CNPJ:</mat-card-title>
+  <mat-card-content style="display: block;margin-bottom: 16px;">
+    <form [formGroup]="requestFormGroup">
+      <mat-form-field appearance="fill" class="w-100 mt-0">
+        <mat-label>CNPJ</mat-label>
+        <input matInput placeholder="00.000.000/0000-00" formControlName="cnpj" value="">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100 mt-0">
+        <mat-label>Razão Social</mat-label>
+        <input matInput placeholder="Nome fantasia" formControlName="companyName" value="">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100 mt-0">
+        <mat-label>Endereço</mat-label>
+        <input matInput placeholder="Rua dos bobos, nº0" formControlName="address" value="">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100 mt-0">
+        <mat-label>Telefone</mat-label>
+        <input matInput placeholder="(16) 98180-5545" formControlName="phone" value="">
+      </mat-form-field>
+      <div class="row justify-content-center">
+        <div class="col-md-1 mr-4">
+          <button mat-raised-button (click)="backToHome()" class="button" color="warn">Cancelar</button>
         </div>
-        <div class="col-md-3 col-sm-3">
-          <button mat-raised-button (click)="activeModal.close()" class="dismiss">Sim</button>
+        <div class="col-md-2 ml-4">
+          <button mat-raised-button (click)="confirmRegister()" class="button" color="accent">Confirmar Cadastro</button>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </form>
+  </mat-card-content>
+</mat-card>
