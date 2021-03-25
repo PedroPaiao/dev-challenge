@@ -1,0 +1,44 @@
+<div class="bg-secondary" style="color: aliceblue;">
+  <div class="modal-header">
+    Cadastrar solicitante
+    <a class="dismiss" (click)="activeModal.dismiss('Cross click')">
+      <i>X</i>
+    </a>
+  </div>
+  <div class="modal-body">
+    <div class="container mt-0">
+      <div class="row">
+        <form [formGroup]="requestFormGroup" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill" class="w-100 mt-0">
+            <mat-label>CNPJ</mat-label>
+            <input matInput placeholder="00.000.000/0000-00" formControlName="cnpj" value="">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100 mt-0">
+            <mat-label>Razão Social</mat-label>
+            <input matInput placeholder="Nome fantasia" formControlName="companyName" value="">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100 mt-0">
+            <mat-label>Endereço</mat-label>
+            <input matInput placeholder="Nome fantasia" formControlName="companyName" value="">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100 mt-0">
+            <mat-label>Telefone</mat-label>
+            <input matInput placeholder="Nome fantasia" formControlName="companyName" value="">
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="container mt-0">
+      <div class="row justify-content-end">
+        <div class="col-md-3 col-sm-3">
+          <button mat-raised-button (click)="activeModal.dismiss('Cross click')" class="dismiss">Não</button>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <button mat-raised-button (click)="activeModal.close()" class="dismiss">Sim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

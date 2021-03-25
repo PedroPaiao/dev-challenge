@@ -10,7 +10,21 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms';
 // Modules
 import { DefaultModule } from './layouts/default.module';
-import { HomeModule } from './components/home/home.module';
+import { ModalComponent } from './components/modal/home-modal.component';
+
+import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button'
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { QuestionModalModule } from './components/modal/question-modal.component';
+
+import { HomepageComponent } from './pages/home/homepage.component';
+import { RegisterRequesterModule } from './components/steps/register-requester.component';
+import { FetchCnpjComponent } from './components/steps/fetch-cnpj.component';
+import { StepsService } from './shared/services/steps.service';
+import { StepComponent } from './pages/step/step.component';
 
 
 export const customCurrencyMaskConfig = {
@@ -27,18 +41,32 @@ export const customCurrencyMaskConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomepageComponent,
+    StepComponent,
+    ModalComponent,
+    FetchCnpjComponent,
   ],
   imports: [
+    RouterModule,
+    MatCardModule,
     BrowserModule,
+    MatFormFieldModule,
+    MatInputModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DefaultModule,
-    HomeModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    RegisterRequesterModule,
+    QuestionModalModule
   ],
-  providers: [FormsModule],
+  providers: [
+    FormsModule,
+    StepsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

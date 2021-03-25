@@ -1,0 +1,40 @@
+<mat-card class="text-center">
+  <mat-card-title class="mb-4">{{ text }}</mat-card-title>
+  <mat-card-content style="display: block;margin-bottom: 16px;">
+    <form [formGroup]="requestFormGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="w-75">
+        <mat-label>De quanto você precisa?</mat-label>
+        <input
+        matInput
+        currencyMask
+        type="text"
+        formControlName="price"
+        value=""
+        />
+      </mat-form-field>
+      <mat-form-field *ngIf="isLending" appearance="fill" class="w-75">
+        <mat-label>Qual taxa será cobrada?</mat-label>
+        <input
+        matInput
+        currencyMask
+        type="text"
+        value=""
+        formControlName="tax"
+        />
+      </mat-form-field>
+      <mat-form-field *ngIf="isLending" appearance="fill" class="w-75">
+        <mat-label>Em quantas vezes será dividido o pagamento?</mat-label>
+        <input
+        matInput
+        currencyMask
+        type="text"
+        value=""
+        formControlName="installments_count"
+        />
+      </mat-form-field>
+      <div class="row col-md-18 justify-content-center">
+        <button mat-raised-button type="submit" class="button" color="accent">Solicitar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

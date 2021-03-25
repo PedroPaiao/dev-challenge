@@ -1,0 +1,30 @@
+<div class="bg-secondary" style="color: aliceblue;">
+  <div class="modal-header">
+    Emprestimo
+    <a class="dismiss" (click)="activeModal.dismiss('Cross click')">
+      <i>X</i>
+    </a>
+  </div>
+  <div class="modal-body">
+    <div class="container mt-0">
+      <div class="row">
+        <div class="col-md-18">
+          <p>Você já realizou alguma solicitação 
+            em nossa plataforma?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="container mt-0">
+      <div class="row justify-content-end">
+        <div class="col-md-3 col-sm-3">
+          <button mat-raised-button (click)="activeModal.dismiss('Cross click')" class="dismiss">Não</button>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <button mat-raised-button (click)="activeModal.close()" class="dismiss">Sim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

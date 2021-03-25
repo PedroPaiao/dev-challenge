@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomepageComponent } from './components/home/homepage.component';
+import { HomepageComponent } from './pages/home/homepage.component';
+import { FetchCnpjComponent } from './components/steps/fetch-cnpj.component';
 
 // Layouts
 import { DefaultComponent } from "./layouts/default.component";
+import { StepComponent } from './pages/step/step.component';
 
 const routes: Routes = [
   // Default views
@@ -12,6 +14,18 @@ const routes: Routes = [
     component: DefaultComponent,
     children: [
       { path: "", component: HomepageComponent, pathMatch: "full" },
+    ]
+  },
+  {
+    path: "solicitation",
+    component: DefaultComponent,
+    children:[
+      { path: "step",
+        component: StepComponent,
+        children: [
+          { path: "fetch-cnpj", component: FetchCnpjComponent, pathMatch: 'full'}
+        ] 
+      }
     ]
   },
   

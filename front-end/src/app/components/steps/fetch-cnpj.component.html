@@ -1,0 +1,19 @@
+<mat-card class="text-center">
+  <mat-card-title class="mb-4">Informe seu CNPJ:</mat-card-title>
+  <mat-card-content style="display: block;margin-bottom: 16px;">
+    <form [formGroup]="requestFormGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="w-100 mt-0">
+        <mat-label>CNPJ</mat-label>
+        <input matInput placeholder="00.000.000/0000-00" formControlName="cnpj" value="">
+      </mat-form-field>
+      <div class="row justify-content-center">
+        <div class="col-md-1 mr-2">
+          <button mat-raised-button type="submit" class="button" color="warn">Cancelar</button>
+        </div>
+        <div class="col-md-2 ml-2">
+          <button mat-raised-button type="submit" class="button" color="accent">Confirmar</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
